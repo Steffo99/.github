@@ -1,3 +1,5 @@
+# Contributing
+
 Hello, and thanks for taking an interest in contributing to one of my projects!
 
 If you want to contribute code, I'd be glad to receive a **pull request** from you on GitHub!
