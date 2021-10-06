@@ -1,5 +1,5 @@
 ---
-name: Bug report
+name: 🐛 Bug report
 about: Report that something does not work as expected.
 title: ''
 labels: bug
@@ -13,7 +13,11 @@ Feel free to ignore this template and post something different! These are just g
 ## Describe the bug
 <!--
 A clear and concise description of what the bug is.
+If applicable, add screenshots to help explain your problem.
+You can paste screenshots here and GitHub will convert them to Markdown for you.
 -->
+
+
 
 ## To reproduce
 <!--
@@ -24,18 +28,18 @@ Steps to reproduce the behavior:
 4. See error
 -->
 
+
+
 ## Expected behavior
 <!--
 A clear and concise description of what you expected to happen.
 -->
 
-## Screenshots
-<!--
-If applicable, add screenshots to help explain your problem.
-You can paste screenshots here and GitHub will convert them to Markdown for you.
--->
+
 
 ## Additional context
 <!--
 Add any other context about the problem here.
 -->
+
+
