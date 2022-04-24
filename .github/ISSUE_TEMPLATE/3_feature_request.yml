@@ -6,7 +6,7 @@ labels:
 assignees: []
 
 body:
-  - type: input
+  - type: textarea
     id: "description"
     attributes:
       label: "Describe the proposed feature"
@@ -15,7 +15,7 @@ body:
       placeholder: |-
         I think that a automated pizza cutter module would be very helpful while preparing pizza!
 
-  - type: input
+  - type: textarea
     id: "reasons"
     attributes:
       label: "Reasoning"
@@ -25,7 +25,7 @@ body:
       placeholder: |-
         The user won't have to waste time cutting their pizza before eating it!
 
-  - type: input
+  - type: textarea
     id: "extra"
     attributes:
       label: "Additional information"

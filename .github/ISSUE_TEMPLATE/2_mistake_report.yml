@@ -6,7 +6,7 @@ labels:
 assignees: []
 
 body:
-  - type: input
+  - type: textarea
     id: "description"
     attributes:
       label: "Describe the mistake"
@@ -19,7 +19,7 @@ body:
         At page 123, it says that 1+1=3.
         That's wrong, it equals 2!
 
-  - type: input
+  - type: textarea
     id: "extra"
     attributes:
       label: "Additional information"

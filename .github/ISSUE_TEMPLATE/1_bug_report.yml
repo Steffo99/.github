@@ -6,7 +6,7 @@ labels:
 assignees: []
 
 body:
-  - type: input
+  - type: textarea
     id: "description"
     attributes:
       label: "Describe the bug"
@@ -17,7 +17,7 @@ body:
       placeholder: |-
         The "Put pizza into oven" button is missing.
 
-  - type: input
+  - type: textarea
     id: "steps"
     attributes:
       label: "Steps to reproduce the behavior"
@@ -29,7 +29,7 @@ body:
         3. Scroll down to the "Bake" section
         4. The "Put pizza into oven" button isn't there.
 
-  - type: input
+  - type: textarea
     id: "extra"
     attributes:
       label: "Additional information"
