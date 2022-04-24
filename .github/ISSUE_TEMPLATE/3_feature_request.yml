@@ -1,0 +1,34 @@
+name: "💡 Feature request"
+about: Submit an idea for a new feature to be implemented in the future.
+title: ''
+labels: feature
+assignees: ''
+
+body:
+  - type: input
+    id: "description"
+    attributes:
+      label: "Describe the proposed feature"
+      description: |-
+        A clear and concise description of what feature you would like to see implemented.
+      placeholder: |-
+        I think that a automated pizza cutter module would be very helpful while preparing pizza!
+
+  - type: input
+    id: "reasons"
+    attributes:
+      label: "Reasoning"
+      description: |-
+        Why do you think your proposal would be useful?
+        What would the use case be?
+      placeholder: |-
+        The user won't have to waste time cutting their pizza before eating it!
+
+  - type: input
+    id: "extra"
+    attributes:
+      label: "Additional information"
+      description: >-
+        Add any additional information about the feature request here.
+      placeholder: >-
+        ...

@@ -1,0 +1,38 @@
+name: "🐛 Bug report"
+about: "Report that something does not work as expected."
+title: ''
+labels: bug
+assignees: ''
+
+body:
+  - type: input
+    id: "description"
+    attributes:
+      label: "Describe the bug"
+      description: |-
+        A clear and concise description of what the bug is.
+        If applicable, add screenshots to help explain your problem.
+        You can paste screenshots here and GitHub will convert them to Markdown for you.
+      placeholder: |-
+        The "Put pizza into oven" button is missing.
+
+  - type: input
+    id: "steps"
+    attributes:
+      label: "Steps to reproduce the behavior"
+      description: |-
+        A list of steps that I can perform to see the bug myself.
+      placeholder: |-
+        1. Go to the "Pizza Margherita" menu
+        2. Click on "Start"
+        3. Scroll down to the "Bake" section
+        4. The "Put pizza into oven" button isn't there.
+
+  - type: input
+    id: "extra"
+    attributes:
+      label: "Additional information"
+      description: |-
+        Add any additional information about the bug here.
+      placeholder: |-
+        ...
