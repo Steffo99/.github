@@ -1,8 +1,9 @@
 name: "📝 Mistake report"
-about: "Report that something the contents of this repository contain some kind of mistake, unrelated to programming."
-title: ''
-labels: mistake
-assignees: ''
+description: "Report that something the contents of this repository contain some kind of mistake, unrelated to programming."
+title: 'Mistake: '
+labels: 
+  - "mistake"
+assignees: []
 
 body:
   - type: input

@@ -1,8 +1,9 @@
 name: "🐛 Bug report"
-about: "Report that something does not work as expected."
-title: ''
-labels: bug
-assignees: ''
+description: "Report that something does not work as expected."
+title: "Bug: "
+labels: 
+  - "bug"
+assignees: []
 
 body:
   - type: input
