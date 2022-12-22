@@ -2,7 +2,6 @@ name: "Release package on GitHub"
 
 on:
   workflow_call:
-  workflow_dispatch:
 
 defaults:
   run:

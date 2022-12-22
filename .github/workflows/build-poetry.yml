@@ -2,7 +2,6 @@ name: "Build Python package using Poetry"
 
 on:
   workflow_call:
-  workflow_dispatch:
 
 defaults:
   run:
