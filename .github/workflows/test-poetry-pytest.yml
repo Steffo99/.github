@@ -40,7 +40,7 @@ jobs:
           source ${{ steps.pyenv.outputs.pyenv }}/activate
           pytest --verbose --cov=. --cov-report=html
 
-      - name: "⬆️ Upload coverage"
+      - name: "Upload coverage"
         uses: actions/upload-artifact@v3
         with:
           name: "Coverage"
