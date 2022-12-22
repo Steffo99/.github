@@ -1,0 +1,70 @@
+name: "Build and release Docker image on ghcr.io"
+
+on:
+  workflow_call:
+  workflow_dispatch:
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  buildrelease:
+    name: "Build and publish Docker image on ghcr.io"
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        include:
+          - platform: "linux/amd64"
+          - arch: "arm"
+            platform: "linux/arm/v7"
+          - arch: "arm64"
+            platform: "linux/arm64/v8"
+
+    steps:
+      - name: "Checkout repository"
+        uses: actions/checkout@v2
+
+      - name: "Find the release semantic version"
+        id: semver
+        uses: Steffo99/actions-semver@v0.3.5
+        with:
+          string: ${{ github.ref_name }}
+
+      - name: "Setup qemu"
+        uses: docker/setup-qemu-action@v2
+        if: ${{ matrix.arch }}
+        with:
+          platforms: ${{ matrix.arch }}
+
+      - name: "Setup Buildx"
+        uses: docker/setup-buildx-action@v2
+        with:
+          platforms: ${{ matrix.platform }}
+
+      - name: "Login to GitHub Containers"
+        uses: docker/login-action@v2
+        with:
+          registry: ghcr.io
+          username: ${{ github.repository_owner }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: "Find the lowercase name of the repository"
+        id: reponame
+        uses: ASzc/change-string-case-action@v5
+        with:
+          string: ${{ github.repository }}
+
+      - name: "Build and push the Docker image"
+        uses: docker/build-push-action@v3
+        with:
+          target: "final"
+          platforms: ${{ matrix.platform }}
+          tags: >-
+            ghcr.io/${{ steps.reponame.outputs.lowercase }}:${{ steps.semver.outputs.precedence }},
+            ghcr.io/${{ steps.reponame.outputs.lowercase }}:${{ steps.semver.outputs.core }},
+            ghcr.io/${{ steps.reponame.outputs.lowercase }}:${{ steps.semver.outputs.pair }},
+            ghcr.io/${{ steps.reponame.outputs.lowercase }}:${{ steps.semver.outputs.major }},
+            ghcr.io/${{ steps.reponame.outputs.lowercase }}:latest
+          push: true
