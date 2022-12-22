@@ -1,0 +1,29 @@
+name: "Release package on PyPI"
+
+on:
+  workflow_call:
+  workflow_dispatch:
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  release:
+    name: "Publish release on PyPI"
+    needs:
+      - "tests"
+      - "build-package"
+    runs-on: ubuntu-latest
+    steps:
+      - name: "⬇Download built packages from artifacts"
+        uses: actions/download-artifact@v3
+        with:
+          name: "Build"
+          path: dist/
+
+      - name: "Upload package"
+        uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          user: "__token__"
+          password: ${{ secrets.PYPI_TOKEN }}
