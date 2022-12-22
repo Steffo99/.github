@@ -1,4 +1,4 @@
-name: "Run automated test using Poetry and compileall"
+name: "Test using Poetry and compileall"
 
 on:
   workflow_call:
@@ -10,7 +10,7 @@ defaults:
 
 jobs:
   test:
-    name: "Test package using compileall"
+    name: "Check syntax using compileall"
     runs-on: ubuntu-latest
 
     steps:

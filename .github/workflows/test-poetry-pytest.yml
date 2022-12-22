@@ -1,4 +1,4 @@
-name: "Run automated test using Poetry and pytest"
+name: "Test using Poetry and pytest"
 
 # Requires the following dependencies
 # pytest = "^6.2.5"
