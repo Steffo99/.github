@@ -9,7 +9,7 @@ defaults:
     shell: bash
 
 jobs:
-  publish:
+  release:
     name: "Publish release on GitHub"
     runs-on: ubuntu-latest
 
