@@ -1,0 +1,29 @@
+name: "Release package on GitHub"
+
+on:
+  workflow_call:
+  workflow_dispatch:
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  publish:
+    name: "Publish release on GitHub"
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: "Download built packages from artifacts"
+        uses: actions/download-artifact@v3
+        with:
+          name: "Build"
+          path: dist/
+
+      - name: "Create release"
+        uses: ncipollo/release-action@v1.11.2
+        with:
+          artifactErrorsFailBuild: true
+          artifacts: dist/*
+          draft: true
+          generateReleaseNotes: true
