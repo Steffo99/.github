@@ -1,0 +1,27 @@
+name: "Analyze Python with CodeQL"
+
+on:
+  workflow_call:
+  workflow_dispatch:
+
+jobs:
+  analyze:
+    name: "Perform Python CodeQL analysis"
+    runs-on: ubuntu-latest
+
+    permissions:
+      security-events: write
+      actions: read
+      contents: read
+
+    steps:
+      - name: "Checkout repository"
+        uses: actions/checkout@v3
+
+      - name: "🔨 Initialize CodeQL"
+        uses: github/codeql-action/init@v2
+        with:
+          languages: python
+
+      - name: "🔍 Perform CodeQL analysis"
+        uses: github/codeql-action/analyze@v2
