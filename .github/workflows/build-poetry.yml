@@ -1,0 +1,46 @@
+name: "Build Python package using Poetry"
+
+on:
+  workflow_call:
+  workflow_dispatch:
+
+defaults:
+  run:
+    shell: bash
+
+build-package:
+  name: "Build Python package"
+  runs-on: ubuntu-latest
+  steps:
+    - name: "Checkout repository"
+      uses: actions/checkout@v3
+
+    - name: "Setup Python"
+      uses: actions/setup-python@v4
+      with:
+        python-version: "3.11"
+
+    - name: "Setup Poetry"
+      uses: abatilo/actions-poetry@v2.2.0
+      with:
+        poetry-version: "1.3.1"
+
+    - name: "Setup Poetry Python environment"
+      uses: Steffo99/actions-poetry-deps@v0.2.5
+
+    - name: "Build package with Poetry"
+      run: poetry build --no-interaction
+
+    - name: "Upload code package to artifacts"
+      uses: actions/upload-artifact@v3
+      with:
+        name: "Build"
+        path: dist/*.tar.gz
+        if-no-files-found: error
+
+    - name: "Upload wheel package to artifacts"
+      uses: actions/upload-artifact@v3
+      with:
+        name: "Build"
+        path: dist/*.whl
+        if-no-files-found: warn
