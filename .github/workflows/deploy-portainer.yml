@@ -2,6 +2,9 @@ name: "Trigger re-deploy on Portainer"
 
 on:
   workflow_call:
+    secrets:
+      PORTAINER_HOOK_URL:
+        required: true
 
 defaults:
   run:

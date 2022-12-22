@@ -2,6 +2,9 @@ name: "Release package on PyPI"
 
 on:
   workflow_call:
+    secrets:
+      PYPI_TOKEN:
+        required: true
 
 defaults:
   run:
