@@ -14,7 +14,7 @@ defaults:
     shell: bash
 
 jobs:
-  pytest:
+  test:
     name: "Test package using pytest"
     runs-on: ubuntu-latest
 
