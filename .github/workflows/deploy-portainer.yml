@@ -1,0 +1,16 @@
+name: "Trigger re-deploy on Portainer"
+
+on:
+  workflow_call:
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    name: "Trigger re-deploy on Portainer"
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Send POST request to the Portainer webhook"
+        uses: fjogeleit/http-request-action@v1
+        with:
+          method: "POST"
+          url: "${{ secrets.PORTAINER_HOOK_URL }}"
