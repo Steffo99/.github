@@ -4,6 +4,10 @@ on:
   workflow_call:
   workflow_dispatch:
 
+defaults:
+  run:
+    shell: bash
+
 jobs:
   analyze:
     name: "Perform Python CodeQL analysis"
