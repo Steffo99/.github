@@ -21,3 +21,4 @@ jobs:
         with:
           method: "POST"
           url: "${{ secrets.PORTAINER_HOOK_URL }}"
+          preventFailureOnNoResponse: true
