@@ -1,0 +1,48 @@
+name: "Run automated test using Poetry and pytest"
+
+# Requires the following dependencies
+# pytest = "^6.2.5"
+# pytest-github-actions-annotate-failures = "^0.1.6"
+# pytest-cov = "^3.0.0"
+
+on:
+  workflow_call:
+  workflow_dispatch:
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  pytest:
+    name: "Test package using pytest"
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: "Checkout repository"
+        uses: actions/checkout@v3
+
+      - name: "Setup Python"
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
+
+      - name: "Setup Poetry"
+        uses: abatilo/actions-poetry@v2.2.0
+        with:
+          poetry-version: "1.3.1"
+
+      - name: "Setup Poetry Python environment"
+        id: pyenv
+        uses: Steffo99/actions-poetry-deps@v0.2.5
+
+      - name: "Run tests"
+        run: |
+          source ${{ steps.pyenv.outputs.pyenv }}/activate
+          pytest --verbose --cov=. --cov-report=html
+
+      - name: "⬆️ Upload coverage"
+        uses: actions/upload-artifact@v3
+        with:
+          name: "Coverage"
+          path: htmlcov
