@@ -10,7 +10,7 @@ defaults:
 
 jobs:
   build:
-    name: "Build Python package"
+    name: "Build Python package using Poetry"
     runs-on: ubuntu-latest
 
     steps:

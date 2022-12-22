@@ -15,7 +15,7 @@ defaults:
 
 jobs:
   test:
-    name: "Test package using pytest"
+    name: "Test using Poetry and pytest"
     runs-on: ubuntu-latest
 
     steps:

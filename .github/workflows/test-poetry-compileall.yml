@@ -10,7 +10,7 @@ defaults:
 
 jobs:
   test:
-    name: "Check syntax using compileall"
+    name: "Test using Poetry and compileall"
     runs-on: ubuntu-latest
 
     steps:

@@ -10,7 +10,7 @@ defaults:
 
 jobs:
   analyze:
-    name: "Perform Python CodeQL analysis"
+    name: "Analyze Python with CodeQL"
     runs-on: ubuntu-latest
 
     permissions:

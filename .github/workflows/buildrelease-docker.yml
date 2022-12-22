@@ -10,7 +10,7 @@ defaults:
 
 jobs:
   buildrelease:
-    name: "Build and publish Docker image on ghcr.io"
+    name: "Build and release Docker image on ghcr.io"
     runs-on: ubuntu-latest
 
     strategy:

@@ -10,7 +10,7 @@ defaults:
 
 jobs:
   release:
-    name: "Publish release on GitHub"
+    name: "Release package on GitHub"
     runs-on: ubuntu-latest
 
     steps:
