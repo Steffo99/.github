@@ -64,5 +64,6 @@ jobs:
             ghcr.io/${{ steps.reponame.outputs.lowercase }}:${{ steps.semver.outputs.core }}-${{ matrix.arch }},
             ghcr.io/${{ steps.reponame.outputs.lowercase }}:${{ steps.semver.outputs.pair }}-${{ matrix.arch }},
             ghcr.io/${{ steps.reponame.outputs.lowercase }}:${{ steps.semver.outputs.major }}-${{ matrix.arch }},
+            ghcr.io/${{ steps.reponame.outputs.lowercase }}:latest-${{ matrix.arch }},
             ghcr.io/${{ steps.reponame.outputs.lowercase }}:latest
           push: true
