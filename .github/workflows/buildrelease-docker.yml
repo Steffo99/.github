@@ -17,6 +17,8 @@ jobs:
         include:
           - arch: "amd64"
             platform: "linux/amd64"
+          - arch: "arm"
+            platform: "linux/arm/v7"
           - arch: "arm64"
             platform: "linux/arm64/v8"
 
