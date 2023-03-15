@@ -11,8 +11,10 @@ jobs:
   buildrelease:
     name: "Build and release Docker image on ghcr.io"
     runs-on: ubuntu-latest
+    continue-on-error: true
 
     strategy:
+      fail-fast: false
       matrix:
         include:
           - arch: "amd64"
