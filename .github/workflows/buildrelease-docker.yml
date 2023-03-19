@@ -25,9 +25,11 @@ jobs:
 
       - name: "Setup qemu"
         uses: docker/setup-qemu-action@v2
-        if: ${{ matrix.arch }}
         with:
-          platforms: ${{ matrix.arch }}
+          platforms: >-
+            linux/amd64,
+            linux/arm/v7,
+            linux/arm64/v8
 
       - name: "Setup Buildx"
         uses: docker/setup-buildx-action@v2
