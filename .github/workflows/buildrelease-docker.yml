@@ -17,12 +17,12 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - arch: "amd64"
-            platform: "linux/amd64"
-          - arch: "arm"
-            platform: "linux/arm/v7"
-          - arch: "arm64"
-            platform: "linux/arm64/v8"
+          - platform: "linux/amd64"
+            rusttarget: "x86_64-unknown-linux-gnu"
+          - platform: "linux/arm/v7"
+            rusttarget: "armv7-unknown-linux-gnueabihf"
+          - platform: "linux/arm64/v8"
+            rusttarget: "aarch64-unknown-linux-gnu"
 
     steps:
       - name: "Checkout repository"
@@ -63,11 +63,12 @@ jobs:
         with:
           target: "final"
           platforms: ${{ matrix.platform }}
+          build-args: >-
+            RUSTTARGET=${{ matrix.rusttarget }}
           tags: >-
-            ghcr.io/${{ steps.reponame.outputs.lowercase }}:${{ steps.semver.outputs.precedence }}-${{ matrix.arch }},
-            ghcr.io/${{ steps.reponame.outputs.lowercase }}:${{ steps.semver.outputs.core }}-${{ matrix.arch }},
-            ghcr.io/${{ steps.reponame.outputs.lowercase }}:${{ steps.semver.outputs.pair }}-${{ matrix.arch }},
-            ghcr.io/${{ steps.reponame.outputs.lowercase }}:${{ steps.semver.outputs.major }}-${{ matrix.arch }},
-            ghcr.io/${{ steps.reponame.outputs.lowercase }}:latest-${{ matrix.arch }},
+            ghcr.io/${{ steps.reponame.outputs.lowercase }}:${{ steps.semver.outputs.precedence }},
+            ghcr.io/${{ steps.reponame.outputs.lowercase }}:${{ steps.semver.outputs.core }},
+            ghcr.io/${{ steps.reponame.outputs.lowercase }}:${{ steps.semver.outputs.pair }},
+            ghcr.io/${{ steps.reponame.outputs.lowercase }}:${{ steps.semver.outputs.major }},
             ghcr.io/${{ steps.reponame.outputs.lowercase }}:latest
           push: true
