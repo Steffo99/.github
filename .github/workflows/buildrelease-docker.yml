@@ -18,11 +18,9 @@ jobs:
       matrix:
         include:
           - platform: "linux/amd64"
-            rusttarget: "x86_64-unknown-linux-gnu"
           - platform: "linux/arm/v7"
-            rusttarget: "armv7-unknown-linux-gnueabihf"
+            rusttarget: "x86_64-unknown-linux-gnu"
           - platform: "linux/arm64/v8"
-            rusttarget: "aarch64-unknown-linux-gnu"
 
     steps:
       - name: "Checkout repository"
@@ -62,9 +60,10 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           target: "final"
-          platforms: ${{ matrix.platform }}
-          build-args: >-
-            RUSTTARGET=${{ matrix.rusttarget }}
+          platforms: >-
+            linux/amd64,
+            linux/arm/v7,
+            linux/arm64/v8
           tags: >-
             ghcr.io/${{ steps.reponame.outputs.lowercase }}:${{ steps.semver.outputs.precedence }},
             ghcr.io/${{ steps.reponame.outputs.lowercase }}:${{ steps.semver.outputs.core }},
