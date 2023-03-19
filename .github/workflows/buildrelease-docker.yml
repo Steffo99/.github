@@ -13,15 +13,6 @@ jobs:
     runs-on: ubuntu-latest
     continue-on-error: true
 
-    strategy:
-      fail-fast: false
-      matrix:
-        include:
-          - platform: "linux/amd64"
-          - platform: "linux/arm/v7"
-            rusttarget: "x86_64-unknown-linux-gnu"
-          - platform: "linux/arm64/v8"
-
     steps:
       - name: "Checkout repository"
         uses: actions/checkout@v2
