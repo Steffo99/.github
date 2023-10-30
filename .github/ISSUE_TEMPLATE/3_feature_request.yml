@@ -1,6 +1,6 @@
 name: "💡 Feature request"
 description: "Submit an idea for a new feature to be implemented in the future."
-title: "Feature: "
+title: ""
 labels: 
   - "feature"
 assignees: []
