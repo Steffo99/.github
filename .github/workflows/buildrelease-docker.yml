@@ -69,3 +69,5 @@ jobs:
             ghcr.io/${{ steps.reponame.outputs.lowercase }}:${{ steps.semver.outputs.major }},
             ghcr.io/${{ steps.reponame.outputs.lowercase }}:latest
           push: true
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
