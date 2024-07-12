@@ -25,7 +25,7 @@ jobs:
           toolchain: "stable"
           override: true
 
-      - name: "Read target directory cache"
+      - name: "Cache target directory"
         uses: actions/cache@v3
         with:
           key: "target"
@@ -36,10 +36,3 @@ jobs:
         uses: actions-rs/cargo@v1
         with:
           command: "clippy"
-
-      - name: "Write target directory cache"
-        uses: actions/cache@v3
-        with:
-          key: "target"
-          path: |
-            target
