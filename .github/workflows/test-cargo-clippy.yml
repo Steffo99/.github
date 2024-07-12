@@ -16,16 +16,30 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: "Checkout the repository"
+        uses: actions/checkout@v4
+      
       - name: "Setup the Rust stable toolchain"
         uses: actions-rs/toolchain@v1
         with:
           toolchain: "stable"
           override: true
 
-      - name: "Checkout the repository"
-        uses: actions/checkout@v2
+      - name: "Read target directory cache"
+        uses: actions/cache@v3
+        with:
+          key: "target"
+          path: |
+            target
 
       - name: "Run cargo clippy"
         uses: actions-rs/cargo@v1
         with:
           command: "clippy"
+
+      - name: "Write target directory cache"
+        uses: actions/cache@v3
+        with:
+          key: "target"
+          path: |
+            target
