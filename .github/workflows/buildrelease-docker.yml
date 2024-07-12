@@ -10,6 +10,10 @@ on:
         default: >-
           linux/amd64,
           linux/arm64/v8
+      version:
+        type: string
+        description: "Override the version number to build image for."
+        required: false
 
 defaults:
   run:
@@ -28,7 +32,7 @@ jobs:
         id: semver
         uses: Steffo99/actions-semver@v0.3.5
         with:
-          string: ${{ github.ref_name }}
+          string: ${{ inputs.version || github.ref_name }}
 
       - name: "Setup qemu"
         uses: docker/setup-qemu-action@v3.0.0
