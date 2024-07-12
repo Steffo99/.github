@@ -16,16 +16,23 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: "Checkout the repository"
+        uses: actions/checkout@v4.1.7
+      
       - name: "Setup the Rust stable toolchain"
-        uses: actions-rs/toolchain@v1
+        uses: actions-rs/toolchain@v1.0.6
         with:
           toolchain: "stable"
           override: true
 
-      - name: "Checkout the repository"
-        uses: actions/checkout@v2
+      - name: "Cache target directory"
+        uses: actions/cache@v4.0.2
+        with:
+          key: "target"
+          path: |
+            target
 
       - name: "Run cargo test"
-        uses: actions-rs/cargo@v1
+        uses: actions-rs/cargo@v1.0.1
         with:
           command: "test"
